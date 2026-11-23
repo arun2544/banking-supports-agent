@@ -1,4 +1,3 @@
-
 """Read-only evaluations for the Groq banking support agent."""
 
 import asyncio
@@ -49,7 +48,13 @@ def check_recent_transactions(reply):
     text = reply.lower()
     return any(
         word in text
-        for word in ["transaction", "amazon", "uber", "swiggy", "flipkart"]
+        for word in [
+            "transaction",
+            "amazon",
+            "uber",
+            "swiggy",
+            "flipkart",
+        ]
     )
 
 
@@ -149,7 +154,7 @@ async def main():
         await hub.start()
 
         try:
-            for case in CASES:
+            for index, case in enumerate(CASES):
                 try:
                     result = await orch.chat(
                         case["user"],
@@ -173,6 +178,11 @@ async def main():
                     print(
                         f"       Error: {type(exc).__name__}: {exc}"
                     )
+
+                # Pause between tests to reduce API rate-limit pressure.
+                if index < len(CASES) - 1:
+                    print("       Waiting 10 seconds before next test...")
+                    await asyncio.sleep(10)
 
         finally:
             try:
