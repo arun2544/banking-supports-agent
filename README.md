@@ -112,8 +112,6 @@ Open http://127.0.0.1:8001/
 - Search for my Amazon transactions.
 - Are there any flagged transactions?
 - What is my credit-card information?
-- Transfer ₹5,000 to another account.
-
 The application is read-only and rejects unsupported banking operations.
 
 ## API Endpoints
