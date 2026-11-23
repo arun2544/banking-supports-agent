@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bank Support Assistant</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header><h1>Bank Support Assistant</h1><span id="who"></span></header>
+
+  <section id="login">
+    <p>Demo logins: <code>alice / alice123</code> (premium) · <code>bob / bob123</code> (standard)</p>
+    <input id="user" placeholder="Username" autocomplete="username">
+    <input id="pass" type="password" placeholder="Password" autocomplete="current-password">
+    <button id="loginBtn">Sign in</button>
+    <p id="loginErr" class="err"></p>
+  </section>
+
+  <section id="chat" hidden>
+    <div id="log" aria-live="polite"></div>
+    <div class="row">
+      <input id="msg" placeholder="Ask about balance, transactions, cheque book, KYC…" maxlength="2000">
+      <button id="send">Send</button>
+    </div>
+    <small id="cost"></small>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
